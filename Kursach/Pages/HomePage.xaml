@@ -1,0 +1,66 @@
+﻿<Page x:Class="Kursach.Pages.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Kursach.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="575" d:DesignWidth="1042"
+      Title="HomePage">
+    <Page.Resources>
+        <ControlTemplate x:Key="TextErrorTemplate">
+            <Border BorderBrush="Red" BorderThickness="1">
+                <StackPanel Orientation="Horizontal">
+                    <AdornedElementPlaceholder />
+                    <Label VerticalAlignment="Center" Content="{Binding [0].ErrorContent}"/>
+                </StackPanel>
+            </Border>
+        </ControlTemplate>
+    </Page.Resources>
+
+    <Grid>
+        
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="163*" />
+            <RowDefinition Height="412*" />
+        </Grid.RowDefinitions>
+
+        <Border BorderThickness="5,5,5,5" Background="#FF3C7131" Margin="50,0,50,0" CornerRadius="70,70,70,70" VerticalAlignment="Center" Height="90" BorderBrush="#FF062C07" >
+            <TextBlock TextWrapping="Wrap"  FontSize="36" FontFamily="Bahnschrift SemiLight" TextAlignment="Left" Margin="0,22,0,13" HorizontalAlignment="Center" FontWeight="Normal" Foreground="White" Opacity="0.995" Visibility="Visible" Width="882" VerticalAlignment="Top" ><Run Text="Добро пожаловать "/><Run Text="в наш спортивный клуб "/><Run Text="&quot;Контур"/><Run Text="&quot;!"/></TextBlock>
+        </Border>
+
+        <Border Grid.Row="1" BorderThickness="5,5,5,5" Background="#FF3C7131" Margin="50,10,50,54" CornerRadius="70,70,70,70" Padding="30,30,30,30" BorderBrush="#FF062C07" >
+            <StackPanel >
+                <StackPanel DataContext="{Binding EditManager}">
+                <TextBlock TextWrapping="Wrap"  FontSize="24" FontFamily="Bahnschrift Light" TextAlignment="Center"  HorizontalAlignment="Left" Margin="50,0,0,0" Foreground="White" ><Run Language="ru-ru" Text="Авторизация менеджера"/></TextBlock>
+                <TextBox x:Name="TextLogin" Height="29" Width="306" HorizontalAlignment="Left" Margin="53,27,0,0" Validation.ErrorTemplate="{StaticResource TextErrorTemplate}" FontSize="16">
+                    <TextBox.Text>
+                        <Binding Path="Login">
+                            <Binding.ValidationRules>
+                                <DataErrorValidationRule />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <TextBox x:Name="TextPassword" Height="29" Width="306" HorizontalAlignment="Left" Margin="53,19,0,0" Validation.ErrorTemplate="{StaticResource TextErrorTemplate}" FontSize="16">
+                    <TextBox.Text>
+                    <Binding Path="Password">
+                        <Binding.ValidationRules>
+                            <DataErrorValidationRule />
+                        </Binding.ValidationRules>
+                    </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Image HorizontalAlignment="Right" Height="166" Width="169" Source="/Pages/56843da40.jpeg" Margin="0,-119,150,1"/>
+                <Image Source="/Pages/8530710_user_icon.png" Height="32" Width="30" HorizontalAlignment="Left" Margin="15,-219.2,0,0"/>
+                <Image Source="/Pages/3669336_lock_outline_ic_icon.png" Height="39" Width="34" HorizontalAlignment="Left" Margin="13,-123,0,0" />
+                </StackPanel>
+                <Button Content="Войти" Width="101" Height="28" HorizontalAlignment="Left" Margin="53,-26,0,0" FontSize="16" Background="White" Foreground="Black" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Command="{Binding LogIn}" />
+            </StackPanel>
+
+        </Border>
+
+
+    </Grid>
+</Page>

@@ -1,0 +1,42 @@
+﻿<Window x:Class="Kursach.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kursach"
+        mc:Ignorable="d"
+        Title="Спортивный клуб" Height="600" Width="1042">
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="110*"/>
+        </Grid.RowDefinitions>
+
+
+        <Border   Grid.Row="0" >
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="DarkGray" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Menu Grid.Row="0" HorizontalAlignment="Center" Background="{x:Null}">
+                
+                
+                <MenuItem Header="Тренеры" Visibility="{Binding Entered}" FontSize="24" FontWeight="Bold" Width="200" Margin="30,20,0,20" BorderBrush="Black" BorderThickness="3,3,3,3" Background="#FF3C7131" Height="40" Foreground="White" FontFamily="Bahnschrift SemiLight" Command="{Binding OpenCouch}"/>
+                <MenuItem Header="Тренировки" Visibility="{Binding Entered}" FontSize="24" FontWeight="Bold"  Width="239" Margin="30,20,0,20" BorderBrush="#FF090909" BorderThickness="3,3,3,3" Background="#FF3C7131" Height="40" Foreground="White" FontFamily="Bahnschrift SemiLight" Command="{Binding OpenTreners}"/>
+                <MenuItem Header="Спортсмены" Visibility="{Binding Entered}" FontSize="24" FontWeight="Bold" Width="239" Margin="30,20,0,20" BorderBrush="Black" BorderThickness="3,3,3,3" Background="#FF3C7131" Height="40" Foreground="White" FontFamily="Bahnschrift SemiLight" Command="{Binding OpenSportsman}"/>
+            </Menu>
+        </Border>
+        <Frame Grid.Row="1" Content="{Binding CurrentPage}" NavigationUIVisibility="Hidden">
+            <Frame.Background>
+                <ImageBrush ImageSource="/Без имени-2.png"/>
+            </Frame.Background>
+
+
+
+
+        </Frame>
+
+    </Grid>
+</Window>

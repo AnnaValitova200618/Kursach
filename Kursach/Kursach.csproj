@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Pages\3669336_lock_outline_ic_icon.png" />
+    <None Remove="Pages\56843da40.jpeg" />
+    <None Remove="Pages\8530710_user_icon.png" />
+    <None Remove="Без имени-2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Pages\3669336_lock_outline_ic_icon.png" />
+    <Resource Include="Pages\56843da40.jpeg" />
+    <Resource Include="Pages\8530710_user_icon.png" />
+    <Resource Include="Без имени-2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="DTO\" />
+  </ItemGroup>
+
+</Project>
